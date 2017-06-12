@@ -20,12 +20,16 @@ yarn add --dev chai-snapshot-tests
 const chai = require("chai");
 const snapshots = require("chai-snapshot-tests");
 
-chai.use(snapshots());
+// snapshots will be created relative to the current file
+// `foo/bar/mytest.js` -> `foo/bar/__snapshots__/mytest.js.json`
+chai.use(snapshots(__filename));
 
 const { assert, expect } = chai;
 
 // Example with strings, but works with anything!
+// With assert style assertions
 assert.snapshot("snapName", "This is the expected text");
+// or with expect style assertions
 expect("This is the expected text").toMatchSnapshot("snapName");
 
 // Pass `true` to update the snapshot `snapName` with a new value

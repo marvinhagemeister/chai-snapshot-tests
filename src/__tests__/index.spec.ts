@@ -3,7 +3,7 @@ import * as path from "path";
 import { remove } from "nicer-fs";
 import snapshots from "../index";
 
-chai.use(snapshots());
+chai.use(snapshots(__filename));
 const t = chai.assert;
 
 describe("snapshots", () => {

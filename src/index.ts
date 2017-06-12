@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as Chai from "chai";
-import { getCallerFileName, exists, replaceExtension } from "nicer-fs";
+import { exists, replaceExtension } from "nicer-fs";
 import { readJson, writeJson, updateSnapshot } from "./utils";
 
 /* tslint:disable ban-types */
@@ -12,14 +12,9 @@ export interface ChaiExtender extends Chai.ChaiStatic {
   };
 }
 
-const matcher = () => {
-  const callerFile = getCallerFileName();
-  if (callerFile === undefined) {
-    throw new Error("Could not determine caller filename");
-  }
-
-  const dir = path.dirname(callerFile);
-  const filename = path.basename(callerFile);
+const matcher = (currentFile: string) => {
+  const dir = path.dirname(currentFile);
+  const filename = path.basename(currentFile);
   const snapFile = path.join(dir, "__snapshots__", filename + ".json");
 
   return (chai: ChaiExtender) => {
@@ -29,11 +24,6 @@ const matcher = () => {
 };
 
 export function compareSnaps(chai: ChaiExtender, snapFile: string) {
-  const caller = getCallerFileName();
-  if (caller === undefined) {
-    throw new Error("Could not determine current file");
-  }
-
   return <T>(name: string, actual: T, update: boolean = false) => {
     const data = readJson(snapFile);
     if (
