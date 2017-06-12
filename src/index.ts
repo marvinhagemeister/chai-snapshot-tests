@@ -65,7 +65,7 @@ declare global {
     }
 
     interface Assert {
-      snapshot(name: string, actual: any, update?: boolean): Chai.Assertion;
+      snapshot<T>(name: string, actual: T, update?: boolean): Chai.Assertion;
     }
   }
 }
