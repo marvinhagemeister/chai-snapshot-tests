@@ -24,7 +24,7 @@ const matcher = () => {
 
   return (chai: ChaiExtender) => {
     chai.Assertion.addMethod("toMatchSnapshot", compareSnaps(chai, snapFile));
-    (chai.assert as any).snapshot = compareSnaps(chai, snapFile);
+    chai.assert.snapshot = compareSnaps(chai, snapFile);
   };
 };
 
@@ -61,11 +61,11 @@ export default matcher;
 declare global {
   namespace Chai {
     interface Assertion {
-      toMatchSnapshot(name: string): Chai.Assertion;
+      toMatchSnapshot(name: string): void;
     }
 
     interface Assert {
-      snapshot<T>(name: string, actual: T, update?: boolean): Chai.Assertion;
+      snapshot<T>(name: string, actual: T, update?: boolean): void;
     }
   }
 }
