@@ -35,8 +35,8 @@
     "rimraf": "^2.6.1",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
-    "tslint-config-sevenval": "^0.6.0",
-    "typescript": "^2.3.1"
+    "tslint-config-sevenval": "^0.6.2",
+    "typescript": "^2.3.4"
   },
   "nyc": {
     "include": [

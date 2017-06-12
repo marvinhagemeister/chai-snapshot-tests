@@ -1348,9 +1348,9 @@ tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
-tslint-config-sevenval@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-sevenval/-/tslint-config-sevenval-0.6.0.tgz#65b84877856954fa4bb08ee31f388b9306e39fbd"
+tslint-config-sevenval@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/tslint-config-sevenval/-/tslint-config-sevenval-0.6.2.tgz#e66d9491b2a9b7bdac9c393f096a29f7e46ed064"
 
 tslint@^5.1.0:
   version "5.4.3"
@@ -1379,7 +1379,7 @@ type-detect@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.3.tgz#0e3f2670b44099b0b46c284d136a7ef49c74c2ea"
 
-typescript@^2.3.1:
+typescript@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
