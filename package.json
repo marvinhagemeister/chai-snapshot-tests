@@ -15,7 +15,12 @@
     "coverage": "nyc npm t",
     "prepublish": "npm run lint && npm t && npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/mkdirp": "^0.3.29",
+    "@types/node": "^7.0.29",
+    "mkdirp": "^0.5.1",
+    "nicer-fs": "^1.1.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.0.0",
     "@types/mocha": "^2.2.41",
