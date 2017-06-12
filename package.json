@@ -1,9 +1,14 @@
 {
-  "name": "typescript-starter",
-  "version": "0.0.1",
-  "description": "typescript boilerplate project",
+  "name": "chai-snapshot-tests",
+  "version": "0.5.0",
+  "description": "Add Jest-like snapshot testing to chai",
   "main": "dist/index.js",
   "author": "Marvin Hagemeister <marvin@marvinhagemeister.de>",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:marvinhagemeister/chai-snapshot-tests.git"
+  },
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist/",
@@ -16,15 +21,15 @@
     "prepublish": "npm run lint && npm t && npm run build"
   },
   "dependencies": {
+    "@types/chai": "^4.0.0",
     "@types/mkdirp": "^0.3.29",
     "@types/node": "^7.0.29",
+    "chai": "^4.0.2",
     "mkdirp": "^0.5.1",
     "nicer-fs": "^1.1.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.0",
     "@types/mocha": "^2.2.41",
-    "chai": "^4.0.2",
     "mocha": "^3.3.0",
     "nyc": "^11.0.2",
     "rimraf": "^2.6.1",
