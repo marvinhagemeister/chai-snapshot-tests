@@ -34,4 +34,4 @@ expect("Another text").toMatchSnapshot("snapName", true);
 
 ## License
 
-MIT, see [License.md](License.md)
+MIT, see [License.md](LICENSE.md)
