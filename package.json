@@ -1,6 +1,6 @@
 {
   "name": "chai-snapshot-tests",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Add Jest-like snapshot testing to chai",
   "main": "dist/index.js",
   "author": "Marvin Hagemeister <marvin@marvinhagemeister.de>",
