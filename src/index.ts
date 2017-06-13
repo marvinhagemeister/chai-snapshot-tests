@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as Chai from "chai";
 import { exists, replaceExtension } from "nicer-fs";
-import { readJson, writeJson, updateSnapshot } from "./utils";
+import { readJson, writeJson } from "./utils";
 
 /* tslint:disable ban-types */
 
@@ -26,12 +26,11 @@ const matcher = (currentFile: string) => {
 export function compareSnaps(chai: ChaiExtender, snapFile: string) {
   return <T>(name: string, actual: T, update: boolean = false) => {
     const data = readJson(snapFile);
-    if (
-      data === undefined ||
-      update ||
-      (data !== undefined && data[name] === undefined)
-    ) {
+
+    if (data === undefined) {
       writeJson(snapFile, { [name]: actual });
+    } else if (update || data[name] === undefined) {
+      writeJson(snapFile, { ...data, [name]: actual });
     } else {
       const expected = data[name];
       if (actual !== null && typeof actual === "object") {
@@ -40,8 +39,6 @@ export function compareSnaps(chai: ChaiExtender, snapFile: string) {
         chai.assert.equal(actual, expected);
       }
     }
-
-    updateSnapshot(snapFile, { [name]: actual });
   };
 }
 

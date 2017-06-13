@@ -16,11 +16,3 @@ export function writeJson(file: string, data: Record<string, any>): void {
     encoding: "utf8",
   });
 }
-
-export function updateSnapshot(file: string, data: Record<string, any>) {
-  const content = readJson(file);
-  const update = content === undefined ? data : { ...content, ...data };
-
-  writeJson(file, update);
-  return update;
-}
