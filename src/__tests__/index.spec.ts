@@ -3,11 +3,16 @@ import * as path from "path";
 import { remove } from "nicer-fs";
 import snapshots from "../index";
 
-chai.use(snapshots());
+chai.use(snapshots(__filename));
 const t = chai.assert;
 
 describe("snapshots", () => {
   beforeEach(async () => remove(path.join(__dirname, "__snapshots__")));
+
+  it("should fail", () => {
+    t.snapshot("fail", 2);
+    t.throws(() => t.snapshot("fail", 3));
+  });
 
   it("should snapshot a string", () => {
     t.snapshot("foo", "test-foo");
